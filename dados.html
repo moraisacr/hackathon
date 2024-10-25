@@ -6,7 +6,8 @@
     <title>Monitoramento de Enchentes - Dados</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Cabeçalho -->
     <header class="bg-blue-600 text-white p-4">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-xl font-bold">Monitoramento de Enchentes</h1>
@@ -24,38 +25,97 @@
         </div>
     </header>
 
-    <main class="bg-gray-100 py-20">
+    <!-- Conteúdo Principal -->
+    <main class="bg-gray-100 py-16">
         <div class="container mx-auto">
-            <h2 class="text-3xl font-bold mb-4">Dados Históricos de Níveis dos Rios</h2>
-            <p class="mb-4">Explore os dados históricos de níveis dos rios e precipitação que utilizamos para criar nossas previsões.</p>
+            <h2 class="text-3xl font-bold mb-4">Dados Históricos de Níveis dos Rios e Precipitação</h2>
+            <p class="mb-4">Explore os dados históricos que são utilizados para prever enchentes. Os dados incluem níveis dos rios, precipitação, temperatura, umidade relativa do ar, e pressão atmosférica em diversas regiões do Rio Grande do Sul. Esses registros são essenciais para alimentar os modelos de Machine Learning e garantir previsões precisas.</p>
+
+            <!-- Tabela de Dados -->
             <table class="min-w-full bg-white rounded shadow">
                 <thead>
                     <tr class="bg-blue-500 text-white">
                         <th class="py-2 px-4">Data</th>
+                        <th class="py-2 px-4">Cidade</th>
                         <th class="py-2 px-4">Nível do Rio (m)</th>
                         <th class="py-2 px-4">Precipitação (mm)</th>
                         <th class="py-2 px-4">Temperatura (°C)</th>
+                        <th class="py-2 px-4">Umidade (%)</th>
+                        <th class="py-2 px-4">Pressão (hPa)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="text-center">
                         <td class="py-2 px-4">01/10/2024</td>
+                        <td class="py-2 px-4">Porto Alegre</td>
                         <td class="py-2 px-4">3.2</td>
                         <td class="py-2 px-4">15</td>
                         <td class="py-2 px-4">22</td>
+                        <td class="py-2 px-4">78</td>
+                        <td class="py-2 px-4">1015</td>
                     </tr>
                     <tr class="bg-gray-100 text-center">
                         <td class="py-2 px-4">02/10/2024</td>
-                        <td class="py-2 px-4">3.5</td>
+                        <td class="py-2 px-4">Caxias do Sul</td>
+                        <td class="py-2 px-4">2.9</td>
                         <td class="py-2 px-4">10</td>
-                        <td class="py-2 px-4">20</td>
+                        <td class="py-2 px-4">18</td>
+                        <td class="py-2 px-4">82</td>
+                        <td class="py-2 px-4">1012</td>
                     </tr>
-                    <!-- Adicione mais linhas conforme necessário -->
+                    <tr class="text-center">
+                        <td class="py-2 px-4">03/10/2024</td>
+                        <td class="py-2 px-4">Santa Maria</td>
+                        <td class="py-2 px-4">3.5</td>
+                        <td class="py-2 px-4">12</td>
+                        <td class="py-2 px-4">20</td>
+                        <td class="py-2 px-4">75</td>
+                        <td class="py-2 px-4">1018</td>
+                    </tr>
+                    <tr class="bg-gray-100 text-center">
+                        <td class="py-2 px-4">04/10/2024</td>
+                        <td class="py-2 px-4">Pelotas</td>
+                        <td class="py-2 px-4">3.8</td>
+                        <td class="py-2 px-4">8</td>
+                        <td class="py-2 px-4">21</td>
+                        <td class="py-2 px-4">80</td>
+                        <td class="py-2 px-4">1010</td>
+                    </tr>
+                    <tr class="text-center">
+                        <td class="py-2 px-4">05/10/2024</td>
+                        <td class="py-2 px-4">Uruguaiana</td>
+                        <td class="py-2 px-4">4.1</td>
+                        <td class="py-2 px-4">20</td>
+                        <td class="py-2 px-4">24</td>
+                        <td class="py-2 px-4">70</td>
+                        <td class="py-2 px-4">1005</td>
+                    </tr>
+                    <tr class="bg-gray-100 text-center">
+                        <td class="py-2 px-4">06/10/2024</td>
+                        <td class="py-2 px-4">Rio Grande</td>
+                        <td class="py-2 px-4">4.0</td>
+                        <td class="py-2 px-4">25</td>
+                        <td class="py-2 px-4">19</td>
+                        <td class="py-2 px-4">85</td>
+                        <td class="py-2 px-4">1008</td>
+                    </tr>
+                    <tr class="text-center">
+                        <td class="py-2 px-4">07/10/2024</td>
+                        <td class="py-2 px-4">Passo Fundo</td>
+                        <td class="py-2 px-4">2.7</td>
+                        <td class="py-2 px-4">18</td>
+                        <td class="py-2 px-4">17</td>
+                        <td class="py-2 px-4">90</td>
+                        <td class="py-2 px-4">1013</td>
+                    </tr>
+                  
                 </tbody>
             </table>
+            <p class="text-sm text-gray-600 mt-4">*Os dados acima são fictícios e são fornecidos apenas para fins de demonstração.</p>
         </div>
     </main>
 
+    <!-- Rodapé -->
     <footer class="bg-blue-800 text-white text-center py-4">
         <p>&copy; 2024 Monitoramento de Enchentes. Todos os direitos reservados.</p>
     </footer>
