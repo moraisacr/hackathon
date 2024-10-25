@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         /* Estilo do diálogo de alerta */
-        .alert-dialog {
+        .alert-dialog, .region-selection {
             display: none; /* Esconde o diálogo inicialmente */
             position: fixed;
             top: 50%;
@@ -25,15 +25,9 @@
             width: 90%;
         }
 
-        /* Estilo do botão para fechar o diálogo */
-        .alert-dialog button {
-            background-color: #721c24;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
+        .region-selection {
+            background-color: #ffffff;
+            color: #333;
         }
 
         .alert-overlay {
@@ -45,6 +39,25 @@
             bottom: 0;
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 999;
+        }
+
+        /* Estilo do botão para fechar o diálogo */
+        .alert-dialog button, .region-selection button {
+            background-color: #721c24;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .region-selection select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -72,137 +85,62 @@
     <section id="home" class="bg-blue-500 text-white text-center py-20">
         <div class="container mx-auto">
             <h2 class="text-4xl font-bold mb-4">Previsão e Monitoramento em Tempo Real com IA</h2>
-            <p class="mb-6 text-lg">Utilizando a mais avançada tecnologia de Inteligência Artificial para proteger
-                comunidades e prevenir desastres naturais.</p>
-            <a href="previsao.html" class="bg-yellow-400 text-blue-800 font-bold py-2 px-4 rounded hover:bg-yellow-500">Veja as
-                Previsões</a>
+            <p class="mb-6 text-lg">Utilizando a mais avançada tecnologia de Inteligência Artificial para proteger comunidades e prevenir desastres naturais.</p>
+            <a href="previsao.html" class="bg-yellow-400 text-blue-800 font-bold py-2 px-4 rounded hover:bg-yellow-500">Veja as Previsões</a>
         </div>
-        <img src="img/hero-image.jpg" alt="Imagem de uma cidade monitorada"
-            class="mt-8 mx-auto max-w-full rounded shadow-lg">
+        <img src="img/hero-image.jpg" alt="Imagem de uma cidade monitorada" class="mt-8 mx-auto max-w-full rounded shadow-lg">
     </section>
 
-    <!-- Seção Sobre -->
-    <section id="sobre" class="bg-gray-100 py-16">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-6">Sobre o Projeto</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded shadow">
-                    <img src="img/tecnologia.jpg" alt="Tecnologia de previsão" class="mb-4 rounded">
-                    <h3 class="text-2xl font-bold mb-4">Tecnologia de Previsão Avançada</h3>
-                    <p>Nosso sistema utiliza algoritmos de Machine Learning, como Redes Neurais e Modelos de Regressão,
-                        para prever os níveis dos rios com base em dados históricos de chuvas, níveis dos rios e
-                        condições climáticas.</p>
-                </div>
-                <div class="bg-white p-6 rounded shadow">
-                    <img src="img/satelite.jpg" alt="Imagem de satélite" class="mb-4 rounded">
-                    <h3 class="text-2xl font-bold mb-4">Integração com Sensores e Imagens de Satélite</h3>
-                    <p>Com integração de sensores hidrológicos, pluviômetros e imagens de satélite, nosso sistema
-                        garante precisão nas previsões, proporcionando uma visão completa das áreas de risco.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção Benefícios -->
-    <section id="beneficios" class="bg-white py-16">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-6">Benefícios do Sistema</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-100 p-6 rounded shadow">
-                    <img src="img/prevencao.jpg" alt="Prevenção de desastres" class="mb-4 rounded">
-                    <h3 class="text-xl font-bold mb-2">Prevenção de Desastres</h3>
-                    <p>Nossas previsões ajudam a prevenir enchentes, oferecendo alertas antecipados que permitem
-                        evacuações rápidas e preparação das comunidades.</p>
-                </div>
-                <div class="bg-gray-100 p-6 rounded shadow">
-                    <img src="img/monitoramento.jpg" alt="Monitoramento em tempo real" class="mb-4 rounded">
-                    <h3 class="text-xl font-bold mb-2">Monitoramento em Tempo Real</h3>
-                    <p>Acompanhe as condições dos rios e do clima em tempo real, garantindo acesso a informações
-                        confiáveis para tomar decisões rápidas.</p>
-                </div>
-                <div class="bg-gray-100 p-6 rounded shadow">
-                    <img src="img/relatorios.jpg" alt="Relatórios detalhados" class="mb-4 rounded">
-                    <h3 class="text-xl font-bold mb-2">Relatórios Detalhados</h3>
-                    <p>Acesse relatórios personalizados que fornecem uma visão detalhada das condições climáticas,
-                        permitindo um melhor planejamento e gestão de riscos.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção Destaques -->
-    <section id="destaques" class="bg-blue-500 text-white py-16">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-6">Destaques Recentes</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white text-gray-800 p-6 rounded shadow">
-                    <img src="img/parceria.jpg" alt="Parceria com órgãos públicos" class="mb-4 rounded">
-                    <h3 class="text-xl font-bold">Parceria com Órgãos Públicos</h3>
-                    <p class="mt-2">Estamos colaborando com prefeituras e órgãos de defesa civil para implementar nosso
-                        sistema de monitoramento nas áreas mais afetadas por enchentes.</p>
-                </div>
-                <div class="bg-white text-gray-800 p-6 rounded shadow">
-                    <img src="img/algoritmo.jpg" alt="Novo algoritmo de previsão" class="mb-4 rounded">
-                    <h3 class="text-xl font-bold">Novo Algoritmo de Previsão</h3>
-                    <p class="mt-2">Lançamos um novo algoritmo que melhora a precisão das previsões em 20%, utilizando
-                        técnicas de Deep Learning avançadas.</p>
-                </div>
-                <div class="bg-white text-gray-800 p-6 rounded shadow">
-                    <img src="img/expansao.jpg" alt="Expansão do monitoramento" class="mb-4 rounded">
-                    <h3 class="text-xl font-bold">Expansão do Monitoramento</h3>
-                    <p class="mt-2">Nosso sistema agora cobre novas regiões do Rio Grande do Sul, ampliando a cobertura
-                        para mais de 50 municípios.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção Testemunhos -->
-    <section id="testemunhos" class="bg-gray-100 py-16">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-6">O que as Pessoas Dizem</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded shadow">
-                    <img src="img/testemunho1.jpg" alt="João Silva" class="w-20 h-20 rounded-full mx-auto mb-4">
-                    <p>"Graças aos alertas, conseguimos evacuar a área a tempo e evitar grandes perdas. A precisão das
-                        previsões foi essencial para a nossa segurança."</p>
-                    <h3 class="mt-4 font-bold">- João Silva, Prefeito de São Sebastião</h3>
-                </div>
-                <div class="bg-white p-6 rounded shadow">
-                    <img src="img/testemunho2.jpg" alt="Carla Santos" class="w-20 h-20 rounded-full mx-auto mb-4">
-                    <p>"O sistema de monitoramento nos permite acompanhar as mudanças nos níveis dos rios e tomar decisões rápidas em situações de risco."</p>
-                    <h3 class="mt-4 font-bold">- Carla Santos, Defesa Civil</h3>
-                </div>
-                <div class="bg-white p-6 rounded shadow">
-                    <img src="img/testemunho3.jpg" alt="Marcos Oliveira" class="w-20 h-20 rounded-full mx-auto mb-4">
-                    <p>"A implementação desse sistema trouxe mais tranquilidade para nossa comunidade, sabemos que
-                        estamos mais preparados para as enchentes."</p>
-                    <h3 class="mt-4 font-bold">- Marcos Oliveira, Morador de Santa Cruz</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção de Contato Rápido -->
-    <section id="contato-rapido" class="bg-blue-600 text-white py-16">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-6">Entre em Contato</h2>
-            <p class="mb-4">Tem alguma dúvida? Quer saber como implementar nosso sistema em sua cidade? Entre em contato
-                conosco!</p>
-            <a href="contato.html"
-                class="bg-yellow-400 text-blue-800 font-bold py-2 px-4 rounded hover:bg-yellow-500">Fale Conosco</a>
-        </div>
-    </section>
+    <!-- Diálogo de Seleção de Região -->
+    <div class="alert-overlay"></div>
+    <div class="region-selection">
+        <h3 class="text-lg font-bold">Escolha sua Região</h3>
+        <p>Para melhor monitoramento, selecione a região onde você está localizado:</p>
+        <select id="region-select">
+            <option value="">Selecione uma Região</option>
+            <option value="porto-alegre">Porto Alegre</option>
+            <option value="caxias-do-sul">Caxias do Sul</option>
+            <option value="santa-maria">Santa Maria</option>
+            <option value="pelotas">Pelotas</option>
+            <option value="uruguaiana">Uruguaiana</option>
+            <option value="passo-fundo">Passo Fundo</option>
+        </select>
+        <button onclick="saveRegion()">Salvar</button>
+    </div>
 
     <!-- Diálogo de Alerta -->
-    <div class="alert-overlay"></div>
     <div class="alert-dialog">
-        <h3 class="text-lg font-bold">⚠️ Alerta de Enchente Imediato ⚠️</h3>
+        <h3 class="text-lg font-bold">⚠️ Alerta de Enchente para a sua Região ⚠️</h3>
         <p>Uma enchente é esperada em sua região em breve. Por favor, tome as precauções necessárias e siga as orientações das autoridades locais.</p>
         <button onclick="closeAlert()">Entendi</button>
     </div>
 
     <script>
+        // Função para exibir o diálogo de seleção de região
+        function showRegionSelection() {
+            document.querySelector('.region-selection').style.display = 'block';
+            document.querySelector('.alert-overlay').style.display = 'block';
+        }
+
+        // Função para salvar a região escolhida e fechar o diálogo de seleção
+        function saveRegion() {
+            const selectedRegion = document.getElementById('region-select').value;
+            if (selectedRegion) {
+                localStorage.setItem('selectedRegion', selectedRegion);
+                closeRegionSelection();
+                showAlert(); // Exibe o primeiro alerta imediatamente
+                setInterval(showAlert, 60000); // Exibe o alerta a cada 60 segundos
+            } else {
+                alert('Por favor, selecione uma região.');
+            }
+        }
+
+        // Função para fechar o diálogo de seleção de região
+        function closeRegionSelection() {
+            document.querySelector('.region-selection').style.display = 'none';
+            document.querySelector('.alert-overlay').style.display = 'none';
+        }
+
         // Função para exibir o alerta
         function showAlert() {
             const alertDialog = document.querySelector('.alert-dialog');
@@ -214,16 +152,19 @@
         // Função para fechar o alerta
         function closeAlert() {
             const alertDialog = document.querySelector('.alert-dialog');
-            const alertOverlay = document.querySelector('.alert-overlay');
             alertDialog.style.display = 'none';
-            alertOverlay.style.display = 'none';
         }
 
-        // Exibe o alerta a cada 60 segundos (60000 milissegundos)
-        setInterval(showAlert, 60000);
-
-        // Exibe o primeiro alerta imediatamente ao carregar a página
-        window.onload = showAlert;
+        // Exibe o diálogo de seleção de região se uma região não estiver salva
+        window.onload = function() {
+            const savedRegion = localStorage.getItem('selectedRegion');
+            if (!savedRegion) {
+                showRegionSelection();
+            } else {
+                showAlert(); // Exibe o primeiro alerta imediatamente
+                setInterval(showAlert, 60000); // Exibe o alerta a cada 60 segundos
+            }
+        };
     </script>
 
     <!-- Rodapé -->
@@ -235,5 +176,4 @@
         </div>
     </footer>
 </body>
-
 </html>
