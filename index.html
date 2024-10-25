@@ -7,6 +7,46 @@
     <title>Monitoramento de Enchentes - Home</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Estilo do diálogo de alerta */
+        .alert-dialog {
+            display: none; /* Esconde o diálogo inicialmente */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        /* Estilo do botão para fechar o diálogo */
+        .alert-dialog button {
+            background-color: #721c24;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .alert-overlay {
+            display: none; /* Esconde a sobreposição inicialmente */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-100 text-gray-800">
@@ -34,8 +74,7 @@
             <h2 class="text-4xl font-bold mb-4">Previsão e Monitoramento em Tempo Real com IA</h2>
             <p class="mb-6 text-lg">Utilizando a mais avançada tecnologia de Inteligência Artificial para proteger
                 comunidades e prevenir desastres naturais.</p>
-            <a href="previsao.html"
-                class="bg-yellow-400 text-blue-800 font-bold py-2 px-4 rounded hover:bg-yellow-500">Veja as
+            <a href="previsao.html" class="bg-yellow-400 text-blue-800 font-bold py-2 px-4 rounded hover:bg-yellow-500">Veja as
                 Previsões</a>
         </div>
         <img src="img/hero-image.jpg" alt="Imagem de uma cidade monitorada"
@@ -124,18 +163,18 @@
             <h2 class="text-3xl font-bold mb-6">O que as Pessoas Dizem</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded shadow">
-                    <img src="img/testemunho2.jpg" alt="João Silva" class="w-20 h-20 rounded-full mx-auto mb-4">
+                    <img src="img/testemunho1.jpg" alt="João Silva" class="w-20 h-20 rounded-full mx-auto mb-4">
                     <p>"Graças aos alertas, conseguimos evacuar a área a tempo e evitar grandes perdas. A precisão das
                         previsões foi essencial para a nossa segurança."</p>
                     <h3 class="mt-4 font-bold">- João Silva, Prefeito de São Sebastião</h3>
                 </div>
                 <div class="bg-white p-6 rounded shadow">
-                    <img src="img/testemunho2.jpg" alt="Carla Santos" class="rounded-image">
+                    <img src="img/testemunho2.jpg" alt="Carla Santos" class="w-20 h-20 rounded-full mx-auto mb-4">
                     <p>"O sistema de monitoramento nos permite acompanhar as mudanças nos níveis dos rios e tomar decisões rápidas em situações de risco."</p>
                     <h3 class="mt-4 font-bold">- Carla Santos, Defesa Civil</h3>
                 </div>
                 <div class="bg-white p-6 rounded shadow">
-                    <img src="img/testemunho2.jpg" alt="Marcos Oliveira" class="w-20 h-20 rounded-full mx-auto mb-4">
+                    <img src="img/testemunho3.jpg" alt="Marcos Oliveira" class="w-20 h-20 rounded-full mx-auto mb-4">
                     <p>"A implementação desse sistema trouxe mais tranquilidade para nossa comunidade, sabemos que
                         estamos mais preparados para as enchentes."</p>
                     <h3 class="mt-4 font-bold">- Marcos Oliveira, Morador de Santa Cruz</h3>
@@ -154,6 +193,38 @@
                 class="bg-yellow-400 text-blue-800 font-bold py-2 px-4 rounded hover:bg-yellow-500">Fale Conosco</a>
         </div>
     </section>
+
+    <!-- Diálogo de Alerta -->
+    <div class="alert-overlay"></div>
+    <div class="alert-dialog">
+        <h3 class="text-lg font-bold">⚠️ Alerta de Enchente Imediato ⚠️</h3>
+        <p>Uma enchente é esperada em sua região em breve. Por favor, tome as precauções necessárias e siga as orientações das autoridades locais.</p>
+        <button onclick="closeAlert()">Entendi</button>
+    </div>
+
+    <script>
+        // Função para exibir o alerta
+        function showAlert() {
+            const alertDialog = document.querySelector('.alert-dialog');
+            const alertOverlay = document.querySelector('.alert-overlay');
+            alertDialog.style.display = 'block';
+            alertOverlay.style.display = 'block';
+        }
+
+        // Função para fechar o alerta
+        function closeAlert() {
+            const alertDialog = document.querySelector('.alert-dialog');
+            const alertOverlay = document.querySelector('.alert-overlay');
+            alertDialog.style.display = 'none';
+            alertOverlay.style.display = 'none';
+        }
+
+        // Exibe o alerta a cada 60 segundos (60000 milissegundos)
+        setInterval(showAlert, 60000);
+
+        // Exibe o primeiro alerta imediatamente ao carregar a página
+        window.onload = showAlert;
+    </script>
 
     <!-- Rodapé -->
     <footer class="bg-blue-800 text-white text-center py-4">
