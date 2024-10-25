@@ -1,0 +1,85 @@
+/* styles.css - Estilos personalizados com Tailwind CSS */
+
+/* Fonte e corpo */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f3f4f6;
+    /* Fundo neutro */
+    color: #333;
+    /* Texto mais escuro para melhor legibilidade */
+}
+
+/* Cabeçalho */
+header {
+    background: #2563eb;
+    /* Azul mais intenso */
+    color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+header nav ul {
+    display: flex;
+    gap: 1rem;
+}
+
+header nav ul li a {
+    color: #ffffff;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+header nav ul li a:hover {
+    color: #ffed4a;
+    /* Amarelo para hover */
+}
+
+.rounded-image {
+    width: 80px; /* Ajuste para o tamanho desejado */
+    height: 80px; /* Deve ser igual à largura para manter a proporção circular */
+    border-radius: 50%; /* Garante que a imagem fique redonda */
+    object-fit: cover; /* Ajusta a imagem para cobrir o contêiner sem distorção */
+    display: block; /* Garante que a imagem fique como bloco para centralização */
+    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+}
+
+/* Botões */
+button,
+.bg-blue-600:hover {
+    background-color: #1e40af;
+    /* Azul mais escuro para hover */
+    transition: background-color 0.3s ease;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Estilo das seções */
+main {
+    padding: 2rem 0;
+}
+
+section {
+    padding: 2rem 0;
+}
+
+.bg-white {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s ease;
+}
+
+.bg-white:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    /* Sombra suave ao passar o m

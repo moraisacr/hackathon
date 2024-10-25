@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento de Enchentes - Previsão</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">Monitoramento de Enchentes</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="hover:text-yellow-300">Home</a></li>
+                    <li><a href="sobre.html" class="hover:text-yellow-300">Sobre</a></li>
+                    <li><a href="previsao.html" class="hover:text-yellow-300">Previsão</a></li>
+                    <li><a href="dados.html" class="hover:text-yellow-300">Dados</a></li>
+                    <li><a href="contato.html" class="hover:text-yellow-300">Contato</a></li>
+                    <li><a href="faq.html" class="hover:text-yellow-300">FAQ</a></li>
+                    <li><a href="blog.html" class="hover:text-yellow-300">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="bg-gray-100 py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">Previsão de Níveis dos Rios</h2>
+            <p class="max-w-3xl mx-auto mb-6">
+                Abaixo, você pode ver um exemplo de previsão do nível dos rios usando nossos algoritmos. As previsões são feitas com base em dados históricos e atuais, incluindo chuvas e informações de sensores locais.
+            </p>
+            <div class="bg-white p-6 rounded shadow">
+                <canvas id="nivelRioChart" class="max-w-3xl mx-auto"></canvas>
+            </div>
+            <p class="text-sm text-gray-600 mt-4">*Os dados são exemplos para fins de demonstração.</p>
+        </div>
+    </main>
+
+    <footer class="bg-blue-800 text-white text-center py-4">
+        <p>&copy; 2024 Monitoramento de Enchentes. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('nivelRioChart').getContext('2d');
+        const nivelRioChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['01/10', '02/10', '03/10', '04/10', '05/10', '06/10', '07/10'],
+                datasets: [
+                    {
+                        label: 'Nível Atual do Rio (m)',
+                        data: [3.2, 3.5, 3.8, 4.0, 4.2, 3.9, 3.6],
+                        borderColor: '#3498db',
+                        backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                        fill: true,
+                        tension: 0.3,
+                    },
+                    {
+                        label: 'Previsão de Nível (m)',
+                        data: [3.6, 3.7, 4.1, 4.3, 4.5, 4.2, 3.8],
+                        borderColor: '#e74c3c',
+                        backgroundColor: 'rgba(231, 76, 60, 0.2)',
+                        fill: true,
+                        borderDash: [5, 5],
+                        tension: 0.3,
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Data'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Nível do Rio (m)'
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    <script src="js/custom-charts.js"></script>
+</body>
+</html>
