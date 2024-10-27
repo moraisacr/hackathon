@@ -413,3 +413,20 @@ section .container, footer .container {
         display: block;
     }
 }
+
+.benefit-image {
+    width: 100%;
+    max-width: 150px; /* Define uma largura máxima */
+    height: auto; /* Mantém a proporção da imagem */
+    object-fit: cover; /* Garante que a imagem ocupe o contêiner de forma uniforme */
+}
+
+.hidden {
+    display: none;
+}
+.sobre-image {
+    max-width: 300px;
+    width: 100%; /* Adapta a imagem para telas menores */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 0 auto; /* Centraliza a imagem dentro do contêiner */
+}

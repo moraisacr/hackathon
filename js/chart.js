@@ -188,5 +188,7 @@ function toggleText(button) {
 
 function toggleMenu() {
     const menuLinks = document.getElementById("menu-links");
+
+    // Adiciona a classe "hidden" se o menu estiver visível, e remove se estiver oculto
     menuLinks.classList.toggle("hidden");
 }
