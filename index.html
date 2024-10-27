@@ -1,89 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monitoramento de Enchentes - Home</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        /* Estilo do diálogo de alerta */
-        .alert-dialog, .region-selection {
-            display: none; /* Esconde o diálogo inicialmente */
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #f8d7da;
-            color: #721c24;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            max-width: 400px;
-            width: 90%;
-        }
-
-        .alert-dialog {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #ffffff;
-        color: #333;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        max-width: 400px;
-        width: 90%;
-    }
-
-        .region-selection {
-            background-color: #ffffff;
-            color: #333;
-        }
-
-        .alert-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 999;
-    }
-       .alert-item {
-        border: 1px solid #f8d7da;
-        padding: 10px;
-        border-radius: 5px;
-        margin-top: 10px;
-        background-color: #f8d7da;
-        color: #721c24;
-    }
-
-        /* Estilo do botão para fechar o diálogo */
-        .alert-dialog button, .region-selection button {
-            background-color: #721c24;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        .region-selection select {
-            width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            margin-top: 10px;
-        }
-    </style>
+    <script src="js/chart.js" defer></script>
 </head>
 
 <body class="bg-gray-100 text-gray-800">
@@ -102,6 +25,22 @@
                     <li><a href="blog.html" class="hover:text-yellow-300">Blog</a></li>
                 </ul>
             </nav>
+            <!-- Dropdown para mudar a cidade -->
+            <select id="city-dropdown" onchange="changeCity()" class="bg-yellow-400 text-blue-800 font-bold py-1 px-2 rounded ml-4">
+                <option value="">Mudar Cidade</option>
+                <option value="porto-alegre">Porto Alegre</option>
+                <option value="caxias-do-sul">Caxias do Sul</option>
+                <option value="santa-maria">Santa Maria</option>
+                <option value="pelotas">Pelotas</option>
+                <option value="uruguaiana">Uruguaiana</option>
+                <option value="passo-fundo">Passo Fundo</option>
+                <option value="nova-petropolis">Nova Petrópolis</option>
+                <option value="bento-goncalves">Bento Gonçalves</option>
+                <option value="gramado">Gramado</option>
+                <option value="canela">Canela</option>
+                <option value="lajeado">Lajeado</option>
+                <option value="erechim">Erechim</option>
+            </select>
         </div>
     </header>
 
@@ -114,6 +53,29 @@
         </div>
         <img src="img/hero-image.jpg" alt="Imagem de uma cidade monitorada" class="mt-8 mx-auto max-w-full rounded shadow-lg">
     </section>
+
+    <!-- Diálogo de Seleção de Região -->
+    <div class="alert-overlay"></div>
+    <div class="region-selection">
+        <h3 class="text-lg font-bold">Escolha sua Região</h3>
+        <p>Para melhor monitoramento, selecione a região onde você está localizado:</p>
+        <select id="region-select">
+            <option value="">Selecione uma Região</option>
+            <option value="porto-alegre">Porto Alegre</option>
+            <option value="caxias-do-sul">Caxias do Sul</option>
+            <option value="santa-maria">Santa Maria</option>
+            <option value="pelotas">Pelotas</option>
+            <option value="uruguaiana">Uruguaiana</option>
+            <option value="passo-fundo">Passo Fundo</option>            
+            <option value="nova-petropolis">Nova Petrópolis</option>
+            <option value="bento-goncalves">Bento Gonçalves</option>
+            <option value="gramado">Gramado</option>
+            <option value="canela">Canela</option>
+            <option value="lajeado">Lajeado</option>
+            <option value="erechim">Erechim</option>
+        </select>
+        <button onclick="saveRegion()">Salvar</button>
+    </div>
 
     <section id="sobre" class="bg-gray-100 py-16">
         <div class="container mx-auto text-center">
@@ -222,95 +184,13 @@
                 class="bg-yellow-400 text-blue-800 font-bold py-2 px-4 rounded hover:bg-yellow-500">Fale Conosco</a>
         </div>
     </section>
-
-
-    <!-- Diálogo de Seleção de Região -->
-    <div class="alert-overlay"></div>
-    <div class="region-selection">
-        <h3 class="text-lg font-bold">Escolha sua Região</h3>
-        <p>Para melhor monitoramento, selecione a região onde você está localizado:</p>
-        <select id="region-select">
-            <option value="">Selecione uma Região</option>
-            <option value="porto-alegre">Porto Alegre</option>
-            <option value="caxias-do-sul">Caxias do Sul</option>
-            <option value="santa-maria">Santa Maria</option>
-            <option value="pelotas">Pelotas</option>
-            <option value="uruguaiana">Uruguaiana</option>
-            <option value="passo-fundo">Passo Fundo</option>
-        </select>
-        <button onclick="saveRegion()">Salvar</button>
-    </div>
-
+    <!-- Diálogo de Alerta -->
     <div class="alert-dialog">
         <h3>Status Atual</h3>
         <p><strong>⚠️ 2 alertas ativos na sua região</strong></p>
-        <div class="alert-item">
-            <p><strong>Inundação - Alta</strong></p>
-            <p>Risco de inundação devido a chuvas intensas</p>
-            <p>📍 Vale do Taquari • 🕒 2024-10-26 14:30</p>
-        </div>
-        <div class="alert-item">
-            <p><strong>Deslizamento - Média</strong></p>
-            <p>Risco de deslizamentos em áreas íngremes</p>
-            <p>📍 Serra Gaúcha • 🕒 2024-10-26 14:15</p>
-        </div>
+        <div class="alert-content"></div>
         <button onclick="closeAlert()">Fechar</button>
     </div>
-
-    <!-- Diálogo de Alerta -->
-
-
-    <script>
-        // Função para exibir o diálogo de seleção de região
-        function showRegionSelection() {
-            document.querySelector('.region-selection').style.display = 'block';
-            document.querySelector('.alert-overlay').style.display = 'block';
-        }
-    
-        // Função para salvar a região escolhida e fechar o diálogo de seleção
-        function saveRegion() {
-            const selectedRegion = document.getElementById('region-select').value;
-            if (selectedRegion) {
-                localStorage.setItem('selectedRegion', selectedRegion);
-                closeRegionSelection();
-                showAlert(); // Exibe o alerta detalhado
-            } else {
-                alert('Por favor, selecione uma região.');
-            }
-        }
-    
-        // Função para fechar o diálogo de seleção de região
-        function closeRegionSelection() {
-            document.querySelector('.region-selection').style.display = 'none';
-            document.querySelector('.alert-overlay').style.display = 'none';
-        }
-    
-        // Função para exibir o alerta detalhado
-        function showAlert() {
-            const alertDialog = document.querySelector('.alert-dialog');
-            const alertOverlay = document.querySelector('.alert-overlay');
-            alertDialog.style.display = 'block';
-            alertOverlay.style.display = 'block';
-        }
-    
-        // Função para fechar o alerta detalhado
-        function closeAlert() {
-            const alertDialog = document.querySelector('.alert-dialog');
-            const alertOverlay = document.querySelector('.alert-overlay');
-            alertDialog.style.display = 'none';
-            alertOverlay.style.display = 'none';
-        }
-    
-        // Exibe o diálogo de seleção de região se uma região não estiver salva
-        window.onload = function() {
-            const savedRegion = localStorage.getItem('selectedRegion');
-            if (!savedRegion) {
-                showRegionSelection();
-            } else {
-                showAlert(); // Exibe o alerta detalhado ao carregar a página se uma região estiver salva
-            }
-        };
-    </script>
 
     <!-- Rodapé -->
     <footer class="bg-blue-800 text-white text-center py-4">
