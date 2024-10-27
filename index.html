@@ -25,21 +25,45 @@
             width: 90%;
         }
 
+        .alert-dialog {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ffffff;
+        color: #333;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        max-width: 400px;
+        width: 90%;
+    }
+
         .region-selection {
             background-color: #ffffff;
             color: #333;
         }
 
         .alert-overlay {
-            display: none; /* Esconde a sobreposição inicialmente */
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-        }
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+       .alert-item {
+        border: 1px solid #f8d7da;
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 10px;
+        background-color: #f8d7da;
+        color: #721c24;
+    }
 
         /* Estilo do botão para fechar o diálogo */
         .alert-dialog button, .region-selection button {
@@ -217,6 +241,22 @@
         <button onclick="saveRegion()">Salvar</button>
     </div>
 
+    <div class="alert-dialog">
+        <h3>Status Atual</h3>
+        <p><strong>⚠️ 2 alertas ativos na sua região</strong></p>
+        <div class="alert-item">
+            <p><strong>Inundação - Alta</strong></p>
+            <p>Risco de inundação devido a chuvas intensas</p>
+            <p>📍 Vale do Taquari • 🕒 2024-10-26 14:30</p>
+        </div>
+        <div class="alert-item">
+            <p><strong>Deslizamento - Média</strong></p>
+            <p>Risco de deslizamentos em áreas íngremes</p>
+            <p>📍 Serra Gaúcha • 🕒 2024-10-26 14:15</p>
+        </div>
+        <button onclick="closeAlert()">Fechar</button>
+    </div>
+
     <!-- Diálogo de Alerta -->
 
 
@@ -226,45 +266,48 @@
             document.querySelector('.region-selection').style.display = 'block';
             document.querySelector('.alert-overlay').style.display = 'block';
         }
-
+    
         // Função para salvar a região escolhida e fechar o diálogo de seleção
         function saveRegion() {
             const selectedRegion = document.getElementById('region-select').value;
             if (selectedRegion) {
                 localStorage.setItem('selectedRegion', selectedRegion);
                 closeRegionSelection();
-                showAlert(); // Exibe o primeiro alerta imediatamente
-               
+                showAlert(); // Exibe o alerta detalhado
             } else {
                 alert('Por favor, selecione uma região.');
             }
         }
-
+    
         // Função para fechar o diálogo de seleção de região
         function closeRegionSelection() {
             document.querySelector('.region-selection').style.display = 'none';
             document.querySelector('.alert-overlay').style.display = 'none';
         }
-
-        // Função para exibir o alerta
+    
+        // Função para exibir o alerta detalhado
         function showAlert() {
-            
+            const alertDialog = document.querySelector('.alert-dialog');
             const alertOverlay = document.querySelector('.alert-overlay');
             alertDialog.style.display = 'block';
             alertOverlay.style.display = 'block';
         }
-
-        // Função para fechar o alerta
-  
-
+    
+        // Função para fechar o alerta detalhado
+        function closeAlert() {
+            const alertDialog = document.querySelector('.alert-dialog');
+            const alertOverlay = document.querySelector('.alert-overlay');
+            alertDialog.style.display = 'none';
+            alertOverlay.style.display = 'none';
+        }
+    
         // Exibe o diálogo de seleção de região se uma região não estiver salva
         window.onload = function() {
             const savedRegion = localStorage.getItem('selectedRegion');
             if (!savedRegion) {
                 showRegionSelection();
             } else {
-                showAlert(); // Exibe o primeiro alerta imediatamente
-                
+                showAlert(); // Exibe o alerta detalhado ao carregar a página se uma região estiver salva
             }
         };
     </script>
