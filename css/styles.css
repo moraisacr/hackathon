@@ -387,18 +387,29 @@ section .container, footer .container {
 
 .hero-images-container {
     display: flex;
-    gap: 10rem; 
+    justify-content: center;
+    gap: 2rem; /* Espaçamento horizontal entre as imagens */
+    flex-wrap: wrap; /* Permite que as imagens quebrem para a próxima linha em telas pequenas */
 }
 .hero-image {
     width: 100%;
-    max-width: 300px; 
+    max-width: 300px; /* Limite para o tamanho das imagens */
     height: auto;
-    margin-left: 10rem; 
-    
 }
 .hero-image:first-child {
     margin-left: 50; 
 }
 .more-text {
     display: none; 
+}
+
+#menu-links.hidden {
+    display: none;
+}
+
+/* Exibe o menu em telas médias e maiores */
+@media (min-width: 768px) {
+    #menu-links {
+        display: block;
+    }
 }
