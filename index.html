@@ -12,7 +12,7 @@
 <body class="bg-gray-100 text-gray-800">
     <!-- Cabeçalho -->
     <header class="bg-blue-600 text-white p-4">
-        <div class="container mx-auto flex justify-between items-center">
+        <div class="container mx-auto flex justify-between items-center flex-wrap">
             <h1>Monitoramento</h1>
             <h1>de Enchentes</h1>
             <select id="city-dropdown" onchange="changeCity()" class="bg-yellow-400 text-blue-800 font-bold py-1 px-2 rounded ml-4">
@@ -34,7 +34,7 @@
         
         <div class="menu__links">
             <nav>
-                <ul class="flex space-x-4">
+                <ul class="flex space-x-4 flex-wrap justify-center md:justify-start">
                     <a href="index.html" class="hover:text-yellow-300">Home</a>
                     <a href="sobre.html" class="hover:text-yellow-300">Sobre</a>
                     <a href="previsao.html" class="hover:text-yellow-300">Previsão</a>
@@ -55,9 +55,13 @@
             <p class="mb-6 text-lg">Utilizando a mais avançada tecnologia de Inteligência Artificial para proteger comunidades e prevenir desastres naturais.</p>
             <a href="previsao.html" class="bg-yellow-400 text-blue-800 font-bold py-2 px-4 rounded hover:bg-yellow-500">Veja as Previsões</a>
         </div>
-        <img src="img/hero-image.jpeg" alt="Imagem de uma cidade monitorada" class="hero-image mt-8 mx-auto rounded shadow-lg">
-        <img src="img/hero-image.webp" alt="Imagem de uma cidade monitorada2" class="hero-image mt-8 mx-auto rounded shadow-lg">
-        <img src="img/hero-image.jfif" alt="Imagem de uma cidade monitorada3" class="hero-image3 mt-8 mx-auto rounded shadow-lg">
+        
+        <!-- Contêiner para organizar as imagens com espaçamento igual -->
+        <div class="hero-images-container flex justify-center space-x-4 mt-8 mx-auto">
+            <img src="img/hero-image.jpeg" alt="Imagem de uma cidade monitorada" class="hero-image rounded shadow-lg">
+            <img src="img/hero-image.webp" alt="Imagem de uma cidade monitorada2" class="hero-image rounded shadow-lg">
+            <img src="img/hero-image.jfif" alt="Imagem de uma cidade monitorada3" class="hero-image rounded shadow-lg">
+        </div>
     </section>
 
     <!-- Diálogo de Seleção de Região -->
@@ -86,7 +90,7 @@
     <section id="sobre" class="bg-gray-100 py-16">
         <div class="container mx-auto text-center">
             <h2 class="text-3xl font-bold mb-6">Sobre o Projeto</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:grid-cols-3">
                 <div class="bg-white p-6 rounded shadow">
                     <img src="img/tecnologia.jpg" alt="Tecnologia de previsão" class="mb-4 rounded">
                     <h3 class="text-2xl font-bold mb-4">Tecnologia de Previsão Avançada</h3>
@@ -99,6 +103,12 @@
                     <h3 class="text-2xl font-bold mb-4">Integração com Sensores e Imagens de Satélite</h3>
                     <p>Com integração de sensores hidrológicos, pluviômetros e imagens de satélite, nosso sistema
                         garante precisão nas previsões, proporcionando uma visão completa das áreas de risco.</p>
+                </div>
+                <div class="bg-white p-6 rounded shadow">
+                    <img src="img/analise.jpg" alt="Análise de dados" class="mb-4 rounded">
+                    <h3 class="text-2xl font-bold mb-4">Análise de Dados e Relatórios</h3>
+                    <p>Nossa plataforma oferece relatórios detalhados e análises avançadas para auxiliar no
+                        planejamento de ações preventivas e estratégicas, garantindo a segurança da população.</p>
                 </div>
             </div>
         </div>
@@ -115,12 +125,12 @@
                     <p>Nossas previsões ajudam a prevenir enchentes, oferecendo alertas antecipados que permitem evacuações rápidas e preparação das comunidades.</p>
                 </div>
                 <div class="bg-gray-100 p-6 rounded shadow">
-                    <img src="img/temporeal.jpg" alt="Monitoramento em tempo real" class="mb-4 rounded imagem-10">
+                    <img src="img/temporeal.jpg" alt="Monitoramento em tempo real" class="mb-4 rounded imagem-40">
                     <h3 class="text-xl font-bold mb-2">Monitoramento em Tempo Real</h3>
                     <p>Acompanhe as condições dos rios e do clima em tempo real, garantindo acesso a informações confiáveis para tomar decisões rápidas.</p>
                 </div>
                 <div class="bg-gray-100 p-6 rounded shadow">
-                    <img src="img/relatorios.jpg" alt="Relatórios detalhados" class="mb-4 rounded imagem-10">
+                    <img src="img/relatorios.jpg" alt="Relatórios detalhados" class="mb-4 rounded imagem-20">
                     <h3 class="text-xl font-bold mb-2">Relatórios Detalhados</h3>
                     <p>Acesse relatórios personalizados que fornecem uma visão detalhada das condições climáticas, permitindo um melhor planejamento e gestão de riscos.</p>
                 </div>
@@ -142,7 +152,7 @@
                     <p class="mt-2">Lançamos um novo algoritmo que melhora a precisão das previsões em 20%, utilizando técnicas de Deep Learning avançadas.</p>
                 </div>
                 <div class="bg-white text-gray-800 p-6 rounded shadow">
-                    <img src="img/expandir.webp" alt="Expansão do monitoramento" class="mb-4 rounded imagem-10">
+                    <img src="img/expandir.webp" alt="Expansão do monitoramento" class="mb-4 rounded imagem-30">
                     <h3 class="text-xl font-bold">Expansão do Monitoramento</h3>
                     <p class="mt-2">Nosso sistema agora cobre novas regiões do Rio Grande do Sul, ampliando a cobertura para mais de 50 municípios.</p>
                 </div>

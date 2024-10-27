@@ -174,3 +174,14 @@ function changeCity() {
 window.onload = function() {
     showRegionSelection();
 };
+
+function toggleText(button) {
+    const moreText = button.previousElementSibling.querySelector(".more-text");
+    if (moreText.style.display === "none" || moreText.style.display === "") {
+        moreText.style.display = "inline";
+        button.textContent = "Leia menos";
+    } else {
+        moreText.style.display = "none";
+        button.textContent = "Leia mais";
+    }
+}

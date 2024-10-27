@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monitoramento de Enchentes - Blog</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="bg-gray-100 text-gray-800">
     <header class="bg-blue-600 text-white p-4">
@@ -34,16 +35,38 @@
     <main class="bg-gray-100 py-20">
         <div class="container mx-auto">
             <h2 class="text-3xl font-bold mb-6 text-center">Blog</h2>
+    
             <article class="bg-white p-6 mb-6 rounded shadow">
                 <h3 class="text-2xl font-bold">Como a IA Pode Prevenir Enchentes?</h3>
-                <p class="text-gray-700 mt-4">A Inteligência Artificial oferece inúmeras possibilidades para a previsão de desastres naturais, como enchentes. Neste artigo, exploramos as principais técnicas utilizadas...</p>
-                <a href="#" class="text-blue-500 hover:underline mt-2 block">Leia mais</a>
+                <p class="text-gray-700 mt-4">
+                    A Inteligência Artificial oferece inúmeras possibilidades para a previsão de desastres naturais, como enchentes.
+                    <span class="more-text"><br>
+                        Técnicas como redes neurais e análise de dados em tempo real permitem identificar padrões e <br>prever eventos 
+                    climáticos com antecedência. Esses avanços tecnológicos possibilitam a criação de sistemas de monitoramento que
+                    emitem alertas preventivos, ajudando a salvar vidas e minimizar danos significativos para as comunidades afetadas.
+                    Esse tipo de previsão ajuda governos e instituições a tomar medidas preventivas e a organizar a população para
+                    possíveis evacuações.
+                    </span>
+                </p>
+                <button class="text-blue-500 hover:underline mt-2 block" onclick="toggleText(this)">Leia mais</button>
+                
             </article>
+
             <article class="bg-white p-6 mb-6 rounded shadow">
                 <h3 class="text-2xl font-bold">Impactos das Mudanças Climáticas no Brasil</h3>
-                <p class="text-gray-700 mt-4">As mudanças climáticas têm provocado um aumento na frequência e intensidade das enchentes em diversas regiões do Brasil...</p>
-                <a href="#" class="text-blue-500 hover:underline mt-2 block">Leia mais</a>
+                <p class="text-gray-700 mt-4">
+                    As mudanças climáticas têm provocado um aumento na frequência e intensidade das enchentes em diversas regiões
+                    <span class="more-text"><br>
+                        do Brasil. Eventos como o aumento das temperaturas globais e a elevação do nível dos rios tornam-se cada vez
+                    mais comuns, afetando comunidades vulneráveis em áreas urbanas e rurais. A adaptação a essas mudanças requer
+                    estratégias eficazes, incluindo a construção de infraestruturas resilientes e a criação de programas de 
+                    conscientização ambiental que busquem mitigar os efeitos do aquecimento global e preservar a segurança da 
+                    população.
+                    </span>
+                </p>
+                <button class="text-blue-500 hover:underline mt-2 block" onclick="toggleText(this)">Leia mais</button>
             </article>
+    
         </div>
     </main>
 
@@ -51,4 +74,18 @@
         <p>&copy; 2024 Monitoramento de Enchentes. Todos os direitos reservados.</p>
     </footer>
 </body>
+
+<script>
+
+function toggleText(button) {
+    const moreText = button.previousElementSibling.querySelector(".more-text");
+    if (moreText.style.display === "none" || moreText.style.display === "") {
+        moreText.style.display = "inline";
+        button.textContent = "Leia menos";
+    } else {
+        moreText.style.display = "none";
+        button.textContent = "Leia mais";
+    }
+}
+</script>
 </html>
