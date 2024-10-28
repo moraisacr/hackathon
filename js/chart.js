@@ -187,8 +187,23 @@ function toggleText(button) {
 }
 
 function toggleMenu() {
-    const menuLinks = document.getElementById("menu-links");
-
-    // Adiciona a classe "hidden" se o menu estiver visível, e remove se estiver oculto
+    const menuLinks = document.getElementById("menu-links");    
     menuLinks.classList.toggle("hidden");
+}
+
+function toggleAccessibilityOptions() {
+    document.getElementById('accessibility-options').classList.toggle('hidden');
+}
+
+function toggleContrast() {
+    document.body.classList.toggle('high-contrast');
+}
+
+function increaseFontSize() {
+    document.body.style.fontSize = '1.5em';
+}
+
+function resetAccessibility() {
+    document.body.style.fontSize = '';
+    document.body.classList.remove('high-contrast');
 }

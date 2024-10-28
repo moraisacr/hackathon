@@ -430,3 +430,47 @@ section .container, footer .container {
     height: auto; /* Mantém a proporção da imagem */
     margin: 0 auto; /* Centraliza a imagem dentro do contêiner */
 }
+
+.telegram-icon {
+    width: 16px; 
+    height: 16px; 
+    margin-right: 8px; 
+    vertical-align: middle; 
+}
+
+.high-contrast {
+    background-color: black;
+    color: white;
+}
+
+.high-contrast a {
+    color: yellow;
+}
+
+.accessibility-button {
+    position: fixed;
+    right: 16px; /* Distância da borda direita da tela */
+    top: 50%; /* Posiciona o botão no meio vertical */
+    transform: translateY(-50%); /* Centraliza o botão verticalmente */
+    background-color: #fbbf24; /* Cor de fundo amarelo */
+    color: #1e3a8a; /* Cor do texto azul */
+    border-radius: 9999px; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra do botão */
+    padding: 16px; /* Espaçamento interno */
+    cursor: pointer; /* Cursor de clique */
+    font-size: 24px; /* Tamanho do ícone */
+    text-align: center; /* Centraliza o conteúdo dentro do botão */
+}
+
+.accessibility-label {
+    display: block; /* Faz o texto aparecer abaixo do ícone */
+    font-size: 12px; /* Tamanho menor para o texto */
+    margin-top: 8px; /* Espaço entre o ícone e o texto */
+    color: #1e3a8a; /* Cor do texto */
+}
+
+
+button, .bg-blue-600:hover {
+    background-color: #d0f402;
+    transition: background-color 0.3s ease;
+  }

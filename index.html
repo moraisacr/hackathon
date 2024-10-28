@@ -50,11 +50,30 @@
             </nav>
         </div>
     </header>
+
+    <div id="accessibility-button" class="accessibility-button" onclick="toggleAccessibilityOptions()" aria-label="Botão de acessibilidade para abrir opções">
+        ⚙️
+        <span class="accessibility-label">Acessibilidade</span>
+    </div>
+    
+
+    <div id="accessibility-options" class="hidden fixed top-1/2 right-16 transform -translate-y-1/2 bg-white border border-gray-300 rounded-lg shadow-lg p-4">
+        <button onclick="toggleContrast()" class="block w-full mb-2 p-2 bg-blue-600 text-white rounded">Alto Contraste</button>
+        <button onclick="increaseFontSize()" class="block w-full mb-2 p-2 bg-blue-600 text-white rounded">Aumentar Fonte</button>
+        <button onclick="resetAccessibility()" class="block w-full p-2 bg-gray-300 text-blue-800 rounded">Redefinir</button>
+    </div>
     <!-- Seção Hero -->
     <section id="home" class="bg-blue-500 text-white text-center py-20">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold mb-4">Previsão e Monitoramento em Tempo Real com IA</h2>
-            <p class="mb-6 text-lg">Utilizando a mais avançada tecnologia de Inteligência Artificial para proteger comunidades e prevenir desastres naturais.</p>
+            <h2 class="text-4xl font-bold mb-4">Monitoramento em Tempo Real com IA</h2>
+            <p class="mb-6 text-lg">
+                Estamos utilizando a mais avançada tecnologia de Inteligência Artificial para proteger comunidades e prevenir desastres naturais. 
+                Participe do nosso grupo no Telegram para receber informações em tempo real e ficar sempre informado:<br>
+                <a href="https://t.me/+7bG3KIfJl_NlYzQx" target="_blank" class="text-yellow-300 font-semibold hover:underline inline-flex items-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" class="telegram-icon">
+                    Acesse o Grupo do Telegram
+                </a>
+            </p>
             <a href="previsao.html" class="bg-yellow-400 text-blue-800 font-bold py-2 px-4 rounded hover:bg-yellow-500">Veja as Previsões</a>
         </div>
     
@@ -89,6 +108,7 @@
         <button onclick="saveRegion()">Salvar</button>
     </div>
 
+
     <section id="sobre" class="bg-gray-100 py-16">
         <div class="container mx-auto text-center">
             <h2 class="text-3xl font-bold mb-6">Sobre o Projeto</h2>
@@ -115,6 +135,8 @@
             </div>
         </div>
     </section>
+
+    
 
     <div class="container mx-auto py-16 flex flex-col md:flex-row gap-8">
         <!-- Seção Benefícios -->
@@ -218,5 +240,7 @@
             <a href="termos-uso.html" class="hover:text-yellow-300">Termos de Uso</a>
         </div>
     </footer>
+    
+    
 </body>
 </html>
